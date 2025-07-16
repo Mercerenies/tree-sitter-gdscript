@@ -69,7 +69,6 @@ module.exports = grammar({
     $._pattern,
     $._expression,
     $._primary_expression,
-    $._primary_expression_or_await,
     $._attribute_expression,
     $._parameters,
   ],
@@ -499,12 +498,6 @@ module.exports = grammar({
         $.await_expression
       ),
 
-    _primary_expression_or_await: ($) =>
-      choice(
-        $.await_expression,
-        $._primary_expression
-      ),
-
     _primary_expression: ($) =>
       choice(
         $.binary_operator,
@@ -602,10 +595,10 @@ module.exports = grammar({
 
     unary_operator: ($) =>
       choice(
-        prec(PREC.unary, seq(choice("not", "!"), $._primary_expression_or_await)),
-        prec(PREC.unary, seq("-", $._primary_expression_or_await)),
-        prec(PREC.unary, seq("+", $._primary_expression_or_await)),
-        prec(PREC.unary, seq("~", $._primary_expression_or_await))
+        prec(PREC.unary, seq(choice("not", "!"), $._primary_expression)),
+        prec(PREC.unary, seq("-", $._primary_expression)),
+        prec(PREC.unary, seq("+", $._primary_expression)),
+        prec(PREC.unary, seq("~", $._primary_expression))
       ),
 
     // -- Accessors
