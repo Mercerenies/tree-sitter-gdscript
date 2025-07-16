@@ -494,8 +494,7 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $._primary_expression,
-        $.conditional_expression,
-        $.await_expression
+        $.conditional_expression
       ),
 
     _primary_expression: ($) =>
@@ -595,6 +594,7 @@ module.exports = grammar({
 
     unary_operator: ($) =>
       choice(
+        prec(PREC.unary, seq("await", $._primary_expression)),
         prec(PREC.unary, seq(choice("not", "!"), $._primary_expression)),
         prec(PREC.unary, seq("-", $._primary_expression)),
         prec(PREC.unary, seq("+", $._primary_expression)),
@@ -629,12 +629,6 @@ module.exports = grammar({
 
     parenthesized_expression: ($) =>
       prec(PREC.parenthesized_expression, seq("(", $._rhs_expression, ")")),
-
-    // -----------------------------------------------------------------------------
-    // -                                     Await                                 -
-    // -----------------------------------------------------------------------------
-
-    await_expression: ($) => seq("await", $._expression),
 
     // -----------------------------------------------------------------------------
     // -                                  Assignment                               -

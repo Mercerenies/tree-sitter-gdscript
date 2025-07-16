@@ -120,10 +120,6 @@
         "named": true
       },
       {
-        "type": "await_expression",
-        "named": true
-      },
-      {
         "type": "conditional_expression",
         "named": true
       }
@@ -485,21 +481,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "await_expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "_expression",
-          "named": true
-        }
-      ]
     }
   },
   {
