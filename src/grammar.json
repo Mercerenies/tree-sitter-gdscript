@@ -2552,8 +2552,25 @@
                 "type": "FIELD",
                 "name": "op",
                 "content": {
-                  "type": "STRING",
-                  "value": "in"
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": "not"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "in"
+                    }
+                  ]
                 }
               },
               {

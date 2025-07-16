@@ -553,7 +553,7 @@ module.exports = grammar({
     binary_operator: ($) => {
       // Inspired by tree-sitter-c
       const operators = [
-        ["in", PREC.in],
+        [seq(optional("not"), "in"), PREC.in],
         ["and", PREC.and],
         ["&&", PREC.and],
         ["or", PREC.or],
