@@ -2462,10 +2462,6 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "binary_operator"
-          },
-          {
-            "type": "SYMBOL",
             "name": "identifier"
           },
           {
@@ -3504,30 +3500,38 @@
           {
             "type": "REPEAT1",
             "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "."
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "attribute_subscript"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "attribute_call"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "identifier"
-                    }
-                  ]
-                }
-              ]
+              "type": "PREC_LEFT",
+              "value": 18,
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "."
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "attribute_subscript"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "attribute_call"
+                      },
+                      {
+                        "type": "PREC_LEFT",
+                        "value": 18,
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "identifier"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
             }
           }
         ]

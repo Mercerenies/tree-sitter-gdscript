@@ -528,7 +528,6 @@ module.exports = grammar({
       prec(
         PREC.attribute_expression,
         choice(
-          $.binary_operator,
           $.identifier,
           $.string,
           $.integer,
@@ -613,9 +612,12 @@ module.exports = grammar({
         seq(
           $._attribute_expression,
           repeat1(
-            seq(
-              ".",
-              choice($.attribute_subscript, $.attribute_call, $.identifier)
+            prec.left(
+              PREC.attribute,
+              seq(
+                ".",
+                choice($.attribute_subscript, $.attribute_call, prec.left(PREC.attribute, $.identifier))
+              )
             )
           )
         )
