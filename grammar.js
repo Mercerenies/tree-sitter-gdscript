@@ -739,7 +739,7 @@ module.exports = grammar({
 
     base_call: ($) => prec(PREC.call, seq(".", $.identifier, $.arguments)),
 
-    call: ($) => prec(PREC.call, seq($._primary_expression, $.arguments)),
+    call: ($) => prec(PREC.call, seq($.identifier, $.arguments)),
   }, // end rules
 });
 

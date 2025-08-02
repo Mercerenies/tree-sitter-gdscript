@@ -715,11 +715,11 @@
       "required": true,
       "types": [
         {
-          "type": "_primary_expression",
+          "type": "arguments",
           "named": true
         },
         {
-          "type": "arguments",
+          "type": "identifier",
           "named": true
         }
       ]
