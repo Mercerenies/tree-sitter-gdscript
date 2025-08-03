@@ -535,7 +535,6 @@ module.exports = grammar({
           $.true,
           $.false,
           $.null,
-          $.unary_operator,
           $.node_path,
           $.get_node,
           $.subscript,
