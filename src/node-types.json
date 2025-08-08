@@ -624,7 +624,7 @@
   },
   {
     "type": "body",
-    "named": true,
+    "named": false,
     "fields": {},
     "children": {
       "multiple": true,
@@ -1945,6 +1945,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "_attribute_expression",
+          "named": true
+        },
         {
           "type": "_expression",
           "named": true

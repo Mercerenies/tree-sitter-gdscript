@@ -3425,7 +3425,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_primary_expression"
+          "name": "_attribute_expression"
         },
         {
           "type": "STRING",

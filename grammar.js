@@ -600,7 +600,7 @@ module.exports = grammar({
       ),
 
     // -- Accessors
-    subscript: ($) => seq($._primary_expression, "[", $._expression, "]"),
+    subscript: ($) => seq($._attribute_expression, "[", $._expression, "]"),
 
     attribute_call: ($) => prec(PREC.attribute, seq($.identifier, $.arguments)),
     attribute_subscript: ($) =>
